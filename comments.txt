@@ -1,0 +1,2 @@
+01.
+  php artisan make:auth
