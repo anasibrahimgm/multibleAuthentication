@@ -8,3 +8,5 @@
   although we registered as a normal user
   that's because in AdminController.php we have lines 14-17 and if u don't specify a guard , the auth middleware is going to default to whatever ur default is,
   in our case the default is just 'web' which has the 'users' provider //see auth.php
+
+  now, if i try http://multiauth.app/admin it redirects to http://multiauth.app/home because we are users
