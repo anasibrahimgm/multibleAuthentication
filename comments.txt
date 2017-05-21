@@ -1,2 +1,5 @@
 01.
   php artisan make:auth
+
+  php artisan make:migration create_admins_table --create=admins
+  php artisan migrate
