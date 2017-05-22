@@ -10,3 +10,16 @@
   in our case the default is just 'web' which has the 'users' provider //see auth.php
 
   now, if i try http://multiauth.app/admin it redirects to http://multiauth.app/home because we are users
+
+
+02.
+  php artisan make:controller Auth/AdminLoginController
+
+  php artisan tinker //++++++ on ssh ++++++//
+
+  $admin = new App\Admin
+  $admin->name = 'moaz'
+  $admin->email = 'moaz@gmail.com'
+  $admin->password = Hash::make('moazPassword')
+  $admin->job_title = 'front-end dev'
+  $admin->save()
