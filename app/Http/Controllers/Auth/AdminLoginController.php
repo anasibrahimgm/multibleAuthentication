@@ -10,7 +10,8 @@ class AdminLoginController extends Controller
 {
     public function __construct ()
     {
-      $this->middleware('guest:admin');
+      $this->middleware('guest:admin', ['except' => ['logout']]);
+      //not use this middleware on the logout fn, because with it we have to be logged out to log out!!
     }
 
     public function showLoginForm ()
@@ -34,5 +35,13 @@ class AdminLoginController extends Controller
 
       // If unsuccessfull, then redirect back to the login with the form data
       return redirect()->back()->withInput($request->only('email', 'remember'));//back() here gets them back to the page they were at the last time which is 'login' page
+    }
+
+    public function logout()// Copied from Illuminate\Foundation\Auth\AuthenticatesUsers.php
+    {
+        Auth::guard('admin')->logout();
+        //$request->session()->flush(); // If u flush all the sessions u gonna log out of all users 'admin and user here'
+        //$request->session()->regenerate();
+        return redirect('/');
     }
 }
