@@ -4,7 +4,7 @@
   php artisan make:migration create_admins_table --create=admins
   php artisan migrate
 
-  --if we register normally and open http://multiauth.app/admin we will get the admin interface
+  --if we register normally and open http://multiauth.app/admin we will get the user interface
   although we registered as a normal user
   that's because in AdminController.php we have lines 14-17 and if u don't specify a guard , the auth middleware is going to default to whatever ur default is,
   in our case the default is just 'web' which has the 'users' provider //see auth.php
@@ -23,3 +23,11 @@
   $admin->password = Hash::make('moazPassword')
   $admin->job_title = 'front-end dev'
   $admin->save()
+
+03.
+  Problem 1:
+    -if we requested http://multiauth.app/admin when we are logged out, we get user login page not admin login page
+  Problem 2:
+    -if we are logged in as admins and we go to a page which is protected by the admin guest middleware like http://multiauth.app/admin/login
+    the guest middleware says u can't do this u already logged in as admin so it redirects us to  http://multiauth.app/admin
+    and because we aren't logged in as users it ends up sending us to the normal login page http://multiauth.app/login
