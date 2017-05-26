@@ -31,3 +31,7 @@
     -if we are logged in as admins and we go to a page which is protected by the admin guest middleware like http://multiauth.app/admin/login
     the guest middleware says u can't do this u already logged in as admin so it redirects us to  http://multiauth.app/admin
     and because we aren't logged in as users it ends up sending us to the normal login page http://multiauth.app/login
+
+05.
+  php artisan make:notification AdminResetPasswordNotification
+  //creates a new folder app/Notifications

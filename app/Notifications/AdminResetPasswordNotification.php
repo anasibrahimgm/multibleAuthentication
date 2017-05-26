@@ -11,14 +11,16 @@ class AdminResetPasswordNotification extends Notification
 {
     use Queueable;
 
+    public $token;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($token)
     {
-        //
+        $this->token = $token;
     }
 
     /**
@@ -41,9 +43,9 @@ class AdminResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('You are receiving this email because we received a password reset request for your account.')
+                    ->action('Reset Password', route('admin.password.reset', $this->token))
+                    ->line('If you did not request a password reset, no further action is required!');
     }
 
     /**

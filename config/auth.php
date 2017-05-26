@@ -113,7 +113,7 @@ return [
             'expire' => 60,
         ],
 
-        'admins' => [
+        'admins' => [//password broker
             'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 15, // 15 mins
