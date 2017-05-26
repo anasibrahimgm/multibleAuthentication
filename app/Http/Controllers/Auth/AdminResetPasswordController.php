@@ -45,7 +45,7 @@ class AdminResetPasswordController extends Controller
       return Auth::guard('admin');
     }
 
-    protected function borker()
+    protected function broker()
     {
       return Password::broker('admins');
     }
