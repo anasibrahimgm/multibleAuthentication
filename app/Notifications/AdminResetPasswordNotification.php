@@ -42,8 +42,9 @@ class AdminResetPasswordNotification extends Notification
      */
     public function toMail($notifiable)
     {
+        // file path: vendor/laravel/framework/src/Illuminate/Notifications/resources/views/email.blade.php
         return (new MailMessage)
-                    ->line('You are receiving this email because we received a password reset request for your account.')
+                    ->line('You are receiving this email because we received a password reset request for your ADMIN account.')
                     ->action('Reset Password', route('admin.password.reset', $this->token))
                     ->line('If you did not request a password reset, no further action is required!');
     }

@@ -35,3 +35,19 @@
 05.
   php artisan make:notification AdminResetPasswordNotification
   //creates a new folder app/Notifications
+
+-----------
+Email settings
+--------
+in vendor/laravel/framework/src/Illuminate/Auth/Notifications/ResetPassword.php, it should be changed into
+  action('Reset Password',route('password.reset', $this->token))
+
+vendor/laravel/framework/src/Illuminate/Mail/resources/views/html/message.blade.php
+//msg content
+
+------------
+application name:
+  /resources/views/layouts/app.blade.php //didn't change it
+  /vendor/laravel/framework/src/Illuminate/Auth/Console/stubs/make/views/layouts/app.stub //neither did this one
+
+we can change Config::set('app.name', 'New Name in files');

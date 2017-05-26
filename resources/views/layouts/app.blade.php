@@ -1,3 +1,4 @@
+{{ Config::set('app.name', 'Moaz')}}<!--This will change it in pages extending app.blade.php-->
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
