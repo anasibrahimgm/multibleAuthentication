@@ -51,3 +51,7 @@ application name:
   /vendor/laravel/framework/src/Illuminate/Auth/Console/stubs/make/views/layouts/app.stub //neither did this one
 
 we can change Config::set('app.name', 'New Name in files');
+
+
+we change APP_NAME=Anas to change the name of the application
+also APP_URL=http://localhost should be changed i guess!
